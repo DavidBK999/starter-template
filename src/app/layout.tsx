@@ -11,8 +11,9 @@ const calistoga = Calistoga({
 });
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  description: "Created with the help of Frontend Tribe",
+  title: "Mein Portfolio",
+  description:
+    "Ich bin David Köberl, ein Full Stack Web Developer, spezialisiert auf die Entwicklung moderner und skalierbarer Webanwendungen. Entdecke meine Arbeit und Projekte auf dieser Portfolio-Seite.",
 };
 
 export default function RootLayout({
