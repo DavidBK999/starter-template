@@ -103,17 +103,19 @@ export const AboutSection = () => {
             <Card className="h-[320px] md:col-span-2 lg:col-span-1">
               <CardHeader
                 title="Inspiration"
-                description="Dieses Buch hat mir geholfen, durch kleine Gewohnheiten große Veränderungen zu erzielen."
+                description="Mein Lieblingsbuch - kleine Gewohnheiten, große Veränderungen."
               />
-              <div className="w-40 mx-auto mt-2 md:mt-1 hover:mt-0 hover:scale-x-105 transition-all duration-300">
-                <Image src={bookImage} alt="Book cover" />
+              <div className="w-40 mx-auto mt-2 md:mt-1 hover:-mt-5 transition-all duration-500">
+                <a href="https://jamesclear.com/atomic-habits-summary">
+                  <Image src={bookImage} alt="Book cover" />
+                </a>
               </div>
             </Card>
             <Card className="h-[320px]  md:col-span-3 lg:col-span-2">
               <CardHeader
                 title="Expertise"
                 description="Tools, mit denen ich außergewöhnliche Webseiten
-                schaffe."
+                kreire."
                 className=""
               />
               <ToolboxItems
@@ -132,7 +134,7 @@ export const AboutSection = () => {
             <Card className="h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-2">
               <CardHeader
                 title="Zwischen den Zeilen"
-                description="Was mich außerhalb der digitalen Welt begeistert."
+                description="Was mich auch noch neben der digitalen Welt begeistert."
                 className="px-6 py-6"
               />
               <div className="relative flex-1" ref={constraintRef}>

@@ -14,7 +14,7 @@ import { Card } from "@/components/Card";
 const portfolioProjects = [
   {
     company: "Chocberry Vienna",
-    year: "In Arbeit - 2024",
+    year: "In Arbeit",
     title: "Chocberry Landing Page",
     results: [
       { title: "Geplante Verbesserung der Nutzererfahrung um 40%" },
@@ -27,20 +27,20 @@ const portfolioProjects = [
   },
   {
     company: "Tamino's ART",
-    year: "November 2024",
+    year: "2024",
     title: "Sketch Artist Kurssektion",
     results: [
       { title: "Kursverkauf um 40% gestiegen – ein klarer Erfolg!" },
-      { title: "Bekanntheitsgrad signifikant gestiegen." },
-      { title: "Mobile Aufmerksamkeit um 35% gestiegen." },
+      { title: "Bekanntheitsgrad in kurzer Zeit signifikant gestiegen." },
+      { title: "Mobile Aufmerksamkeit im einem Monat um 30% gestiegen." },
     ],
     link: "https://taminosart.com/",
     disabled: false,
     image: taminosWebseite,
   },
   {
-    company: "Free FFMI Calculator",
-    year: "September 2024",
+    company: "FFMI Calculator",
+    year: "2024",
     title: "FFMI Calculator Landing Page",
     results: [
       { title: "Intensive Nutzung von JavaScript für interaktive Funktionen" },
@@ -59,17 +59,16 @@ export const ProjectsSection = () => {
   const [showTooltip, setShowTooltip] = useState(false);
 
   const handleClick = () => {
-    // Tooltip für 3 Sekunden anzeigen
     setShowTooltip(true);
     setTimeout(() => {
       setShowTooltip(false);
-    }, 3000); // 3000 ms = 3 Sekunden
+    }, 3000);
   };
 
-  const handleMouseEnter = () => setShowTooltip(true); // Tooltip beim Hover anzeigen (Desktop)
-  const handleMouseLeave = () => setShowTooltip(false); // Tooltip beim Verlassen ausblenden (Desktop)
+  const handleMouseEnter = () => setShowTooltip(true);
+  const handleMouseLeave = () => setShowTooltip(false);
 
-  const handleTouchStart = () => setShowTooltip(true); // Tooltip wird beim Tippen angezeigt (mobil)
+  const handleTouchStart = () => setShowTooltip(true);
   const handleTouchEnd = () => {};
 
   return (
@@ -123,7 +122,7 @@ export const ProjectsSection = () => {
                       <button
                         className={`h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 ${
                           project.disabled
-                            ? "bg-gray-400 text-gray-700 cursor-not-allowed"
+                            ? "bg-gray-100 text-gray-700 cursor-not-allowed"
                             : "bg-white text-gray-950"
                         }`}
                         disabled={project.disabled}
@@ -134,7 +133,7 @@ export const ProjectsSection = () => {
                       </button>
                     </a>
                     {showTooltip && (
-                      <div className="absolute z-50 top-full mt-2 p-2 bg-gray-700 text-white text-sm rounded-md shadow-lg">
+                      <div className="absolute z-50 top-full mx-0.5 mt-1 p-1.5 px-2 bg-gray-700 text-white text-xs rounded-md shadow-lg">
                         {project.disabled
                           ? "Dieses Projekt wird momentan bearbeitet und ist noch nicht online."
                           : "Seite besuchen"}
