@@ -24,7 +24,7 @@ export const ContactSection = () => {
               </p>
             </div>
             <div>
-              <a href="mailto:davidkoeberl99@gmail.com?subject=Frage%20an%20David&body=Hallo%2C%20ich%20habe%20eine%20Frage%20an%20dich.">
+              <a href="mailto:davidkoeberl99@gmail.com?subject=Kontaktaufnahme%20über%20Webseite&body=Hallo%2C%20David,%20ich%20habe%20eine%20Frage%20an%20dich.">
                 <button className="text-white bg-gray-900 inline-flex items-center px-6 h-12 rounded-xl gap-2 border border-gray-900">
                   <span className="font-semibold text-sm w-max">
                     Kontakt aufnehmen

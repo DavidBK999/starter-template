@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import taminosWebseite from "@/assets/images/tamino_web.png";
 import ffmiRechner from "@/assets/images/ffmi.png";
@@ -19,6 +22,7 @@ const portfolioProjects = [
       { title: "Optimierung für einen Anstieg des mobilen Traffics um 35%" },
     ],
     link: "",
+    disabled: true,
     image: chocberryLandingPage,
   },
   {
@@ -26,11 +30,12 @@ const portfolioProjects = [
     year: "November 2024",
     title: "Sketch Artist Kurssektion",
     results: [
-      { title: "Kursverkauf um 40% gestiegen" },
-      { title: "Bekanntheitsgrad erhöht" },
-      { title: "Mobile Aufmerksamkeit +35%" },
+      { title: "Kursverkauf um 40% gestiegen – ein klarer Erfolg!" },
+      { title: "Bekanntheitsgrad signifikant gestiegen." },
+      { title: "Mobile Aufmerksamkeit um 35% gestiegen." },
     ],
     link: "https://taminosart.com/",
+    disabled: false,
     image: taminosWebseite,
   },
   {
@@ -45,11 +50,28 @@ const portfolioProjects = [
       },
     ],
     link: "",
+    disabled: true,
     image: ffmiRechner,
   },
 ];
 
 export const ProjectsSection = () => {
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  const handleClick = () => {
+    // Tooltip für 3 Sekunden anzeigen
+    setShowTooltip(true);
+    setTimeout(() => {
+      setShowTooltip(false);
+    }, 3000); // 3000 ms = 3 Sekunden
+  };
+
+  const handleMouseEnter = () => setShowTooltip(true); // Tooltip beim Hover anzeigen (Desktop)
+  const handleMouseLeave = () => setShowTooltip(false); // Tooltip beim Verlassen ausblenden (Desktop)
+
+  const handleTouchStart = () => setShowTooltip(true); // Tooltip wird beim Tippen angezeigt (mobil)
+  const handleTouchEnd = () => {};
+
   return (
     <section className="pb-16 lg:py-24">
       <div className="container">
@@ -90,12 +112,35 @@ export const ProjectsSection = () => {
                       </li>
                     ))}
                   </ul>
-                  <a href={project.link}>
-                    <button className="bg-white text-gray-950 h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 ">
-                      <span>Besuche Live Seite</span>
-                      <ArrowUpRightIcon className="size-4" />
-                    </button>
-                  </a>
+                  <div
+                    onMouseEnter={handleMouseEnter} // Tooltip wird beim Hover aktiviert (Desktop)
+                    onMouseLeave={handleMouseLeave} // Tooltip wird beim Verlassen deaktiviert (Desktop)
+                    onTouchStart={handleTouchStart} // Tooltip wird beim Tippen auf dem Handy aktiviert
+                    onTouchEnd={handleTouchEnd} // Verhindern, dass Tooltip sofort verschwindet (mobil)
+                    className="relative"
+                  >
+                    <a href={project.disabled ? "#" : project.link}>
+                      <button
+                        className={`h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 ${
+                          project.disabled
+                            ? "bg-gray-400 text-gray-700 cursor-not-allowed"
+                            : "bg-white text-gray-950"
+                        }`}
+                        disabled={project.disabled}
+                        onClick={handleClick}
+                      >
+                        <span>Besuche Live Seite</span>
+                        <ArrowUpRightIcon className="size-4" />
+                      </button>
+                    </a>
+                    {showTooltip && (
+                      <div className="absolute z-50 top-full mt-2 p-2 bg-gray-700 text-white text-sm rounded-md shadow-lg">
+                        {project.disabled
+                          ? "Dieses Projekt wird momentan bearbeitet und ist noch nicht online."
+                          : "Seite besuchen"}
+                      </div>
+                    )}
+                  </div>
                 </div>
                 <div className="relative">
                   <Image

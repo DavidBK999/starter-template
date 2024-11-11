@@ -63,16 +63,16 @@ const hobbies = [
     top: "35%",
   },
   {
-    title: "Yoga",
-    emoji: "☯️",
+    title: "Mind mapping",
+    emoji: "🧠",
     left: "39%",
-    top: "40%",
+    top: "30%",
   },
   {
     title: "Lesen",
     emoji: "📖",
     left: "66%",
-    top: "45%",
+    top: "48%",
   },
   {
     title: "Musik",
@@ -102,7 +102,7 @@ export const AboutSection = () => {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
             <Card className="h-[320px] md:col-span-2 lg:col-span-1">
               <CardHeader
-                title="Perspektiven"
+                title="Inspiration"
                 description="Dieses Buch hat mir geholfen, durch kleine Gewohnheiten große Veränderungen zu erzielen."
               />
               <div className="w-40 mx-auto mt-2 md:mt-1 hover:mt-0 hover:scale-x-105 transition-all duration-300">
@@ -132,7 +132,7 @@ export const AboutSection = () => {
             <Card className="h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-2">
               <CardHeader
                 title="Zwischen den Zeilen"
-                description="Was mich außerhalb der digitalen Welt inspiriert."
+                description="Was mich außerhalb der digitalen Welt begeistert."
                 className="px-6 py-6"
               />
               <div className="relative flex-1" ref={constraintRef}>

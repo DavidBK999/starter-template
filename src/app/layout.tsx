@@ -11,7 +11,7 @@ const calistoga = Calistoga({
 });
 
 export const metadata: Metadata = {
-  title: "Mein Portfolio",
+  title: "Full Stack Development - David Köberl",
   description:
     "Ich bin David Köberl, ein Full Stack Web Developer, spezialisiert auf die Entwicklung moderner und skalierbarer Webanwendungen. Entdecke meine Arbeit und Projekte auf dieser Portfolio-Seite.",
 };
