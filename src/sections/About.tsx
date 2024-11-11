@@ -103,7 +103,7 @@ export const AboutSection = () => {
             <Card className="h-[320px] md:col-span-2 lg:col-span-1">
               <CardHeader
                 title="Perspektiven"
-                description="Bücher, die mich inspirieren und prägen."
+                description="Dieses Buch hat mir geholfen, durch kleine Gewohnheiten große Veränderungen zu erzielen."
               />
               <div className="w-40 mx-auto mt-2 md:mt-1 hover:mt-0 hover:scale-x-105 transition-all duration-300">
                 <Image src={bookImage} alt="Book cover" />

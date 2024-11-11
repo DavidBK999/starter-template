@@ -20,12 +20,6 @@ const testimonials = [
     text: "David hat eine technisch beeindruckende und benutzerfreundliche Webseite entwickelt. Sein umfassendes Know-how zeigt sich in einer stabilen und ansprechend gestalteten Seite.",
     avatar: memojiAvatar2,
   },
-  {
-    name: "Daniel White",
-    position: "CEO @ InnovateCo",
-    text: "David's ability to create seamless user experiences is unmatched. Our website has seen a significant increase in conversions since launching the new design. We couldn't be happier.",
-    avatar: memojiAvatar3,
-  },
 ];
 
 export const TestimonialsSection = () => {

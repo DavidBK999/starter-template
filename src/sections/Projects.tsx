@@ -1,8 +1,7 @@
 import Image from "next/image";
 import taminosWebseite from "@/assets/images/tamino_web.png";
 import ffmiRechner from "@/assets/images/ffmi.png";
-import lightSaasLandingPage from "@/assets/images/light-saas-landing-page.png";
-import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
+import chocberryLandingPage from "@/assets/images/chocberry.png";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import grainImage from "@/assets/images/grain.jpg";
@@ -10,6 +9,18 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
 
 const portfolioProjects = [
+  {
+    company: "Chocberry Vienna",
+    year: "In Arbeit - 2024",
+    title: "Chocberry Landing Page",
+    results: [
+      { title: "Geplante Verbesserung der Nutzererfahrung um 40%" },
+      { title: "Ziel: Ladegeschwindigkeit um 50% zu steigern" },
+      { title: "Optimierung für einen Anstieg des mobilen Traffics um 35%" },
+    ],
+    link: "",
+    image: chocberryLandingPage,
+  },
   {
     company: "Tamino's ART",
     year: "November 2024",
@@ -33,20 +44,8 @@ const portfolioProjects = [
         title: "Implementierung von Form-Validierung und dynamischen Inhalten",
       },
     ],
-    link: "https://youtu.be/7hi5zwO75yc",
+    link: "",
     image: ffmiRechner,
-  },
-  {
-    company: "Quantum Dynamics",
-    year: "2024",
-    title: "AI Startup Landing Page",
-    results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
-    ],
-    link: "https://youtu.be/Z7I5uSRHMHg",
-    image: aiStartupLandingPage,
   },
 ];
 
