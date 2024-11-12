@@ -71,8 +71,12 @@ const portfolioProjects = [
         ),
       },
       {
-        title:
-          "Erlernte Umgang mit <strong>DOM-Manipulation</strong> und Event-Handling",
+        title: (
+          <>
+            Effizienter Umgang mit <strong>DOM-Manipulation</strong> und
+            Event-Handling
+          </>
+        ),
       },
       {
         title: "Implementierung von Form-Validierung und dynamischen Inhalten",
