@@ -15,7 +15,7 @@ const testimonials = [
     avatar: memojiAvatar1,
   },
   {
-    name: "Kateryna B.",
+    name: "Kateryna Burlakova",
     position: "CEO Chocberry Desserts @chocberry_vienna",
     text: "David hat eine technisch beeindruckende und benutzerfreundliche Webseite entwickelt. Sein umfassendes Know-how zeigt sich in einer stabilen und ansprechend gestalteten Seite.",
     avatar: memojiAvatar2,

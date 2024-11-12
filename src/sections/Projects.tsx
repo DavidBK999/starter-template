@@ -17,7 +17,13 @@ const portfolioProjects = [
     year: "In Arbeit",
     title: "Chocberry Landing Page",
     results: [
-      { title: "Geplante Verbesserung der Nutzererfahrung um 40%" },
+      {
+        title: (
+          <>
+            Geplante Verbesserung der <strong>Nutzererfahrung</strong> um 40%
+          </>
+        ),
+      },
       { title: "Ziel: Ladegeschwindigkeit um 50% zu steigern" },
       { title: "Optimierung für einen Anstieg des mobilen Traffics um 35%" },
     ],
@@ -30,8 +36,21 @@ const portfolioProjects = [
     year: "2024",
     title: "Sketch Artist Kurssektion",
     results: [
-      { title: "Kursverkauf um 40% gestiegen – ein klarer Erfolg!" },
-      { title: "Bekanntheitsgrad in kurzer Zeit signifikant gestiegen." },
+      {
+        title: (
+          <>
+            <strong>Kursverkauf</strong> um 40% gestiegen – ein klarer Erfolg!
+          </>
+        ),
+      },
+      {
+        title: (
+          <>
+            Bekanntheitsgrad in kurzer Zeit{" "}
+            <strong>signifikant gestiegen</strong>.
+          </>
+        ),
+      },
       { title: "Mobile Aufmerksamkeit im einem Monat um 30% gestiegen." },
     ],
     link: "https://taminosart.com/",
@@ -43,8 +62,18 @@ const portfolioProjects = [
     year: "2024",
     title: "FFMI Calculator Landing Page",
     results: [
-      { title: "Intensive Nutzung von JavaScript für interaktive Funktionen" },
-      { title: "Erlernte Umgang mit DOM-Manipulation und Event-Handling" },
+      {
+        title: (
+          <>
+            Intensive Nutzung von <strong>JavaScript</strong> für interaktive
+            Funktionen
+          </>
+        ),
+      },
+      {
+        title:
+          "Erlernte Umgang mit <strong>DOM-Manipulation</strong> und Event-Handling",
+      },
       {
         title: "Implementierung von Form-Validierung und dynamischen Inhalten",
       },

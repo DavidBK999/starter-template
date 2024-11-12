@@ -43,6 +43,24 @@ const nextConfig = {
 
     return config;
   },
+
+  async headers() {
+    return [
+      {
+        source: "/:path*", // Gilt für alle Seiten
+        headers: [
+          {
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN", // Oder 'DENY', je nach Bedarf
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff", // Verhindert MIME-Type Sniffing
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

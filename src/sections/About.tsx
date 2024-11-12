@@ -106,9 +106,11 @@ export const AboutSection = () => {
                 description="Mein Lieblingsbuch - kleine Gewohnheiten, große Veränderungen."
               />
               <div className="w-40 mx-auto mt-2 md:mt-1 hover:-mt-5 transition-all duration-500">
-                <a href="https://jamesclear.com/atomic-habits-summary">
-                  <Image src={bookImage} alt="Book cover" />
-                </a>
+                <Image
+                  src={bookImage}
+                  alt="Book cover"
+                  className="cursor-pointer"
+                />
               </div>
             </Card>
             <Card className="h-[320px]  md:col-span-3 lg:col-span-2">
