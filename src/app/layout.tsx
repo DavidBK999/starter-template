@@ -22,10 +22,45 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="de">
       <head>
         <link rel="canonical" href="https://www.davidkoeberl.com" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "http://schema.org",
+              "@type": "Product",
+              name: "David Köberl Web Development Services",
+              image: "https://davidkoeberl.com/favicon.ico",
+              description: "Web Development Service von David Köberl",
+              brand: "David Köberl",
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "5",
+                reviewCount: "3",
+              },
+              review: [
+                {
+                  "@type": "Review",
+                  author: {
+                    "@type": "Person",
+                    name: "Tamino Tschol",
+                  },
+                  datePublished: "2024-11-07",
+                  reviewBody:
+                    "David ist ein hervorragender Entwickler, der unsere Anforderungen schnell und professionell umgesetzt hat.",
+                  reviewRating: {
+                    "@type": "Rating",
+                    ratingValue: "5",
+                    bestRating: "5",
+                  },
+                },
+              ],
+            }),
+          }}
+        />
       </head>
       <body
         className={twMerge(
