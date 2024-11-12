@@ -11,7 +11,7 @@ const calistoga = Calistoga({
 });
 
 export const metadata: Metadata = {
-  title: "Full Stack Development - David Köberl",
+  title: "David Köberl | Full Stack Web Developer",
   description:
     "Ich bin David Köberl, ein Full Stack Web Developer, spezialisiert auf die Entwicklung moderner und skalierbarer Webanwendungen. Entdecke meine Arbeit und Projekte auf dieser Portfolio-Seite.",
 };
@@ -23,6 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+      </head>
       <body
         className={twMerge(
           inter.variable,
