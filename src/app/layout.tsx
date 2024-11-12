@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Calistoga } from "next/font/google";
 import "./globals.css";
 import { twMerge } from "tailwind-merge";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const calistoga = Calistoga({
@@ -24,12 +25,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+  const recaptchaKey =
+    process.env.NODE_ENV === "production"
+      ? process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY_PROD
+      : process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
   return (
     <html lang="de">
       <head>
+        <Script
+          src={`https://www.google.com/recaptcha/enterprise.js?render=${recaptchaKey}`}
+          async
+        ></Script>
         <link rel="canonical" href="https://www.davidkoeberl.com" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
