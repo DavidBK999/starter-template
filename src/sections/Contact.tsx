@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import grainImage from "@/assets/images/grain.jpg"; // Bildimport anpassen
@@ -16,8 +18,9 @@ export const ContactSection = () => {
     if (typeof grecaptcha !== "undefined" && grecaptcha.enterprise) {
       grecaptcha.enterprise.ready(async () => {
         try {
+          // Verwendung des Produktions-Site-Keys direkt aus der Umgebungsvariable
           const token = await grecaptcha.enterprise.execute(
-            process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY_PROD!, // Dein Site Key hier
+            process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY_PROD!, // Dein Produktions-Site-Key hier
             { action: "CONTACT" }
           );
 
