@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from "react";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import grainImage from "@/assets/images/grain.jpg"; // Bildimport anpassen
@@ -8,28 +6,45 @@ export const ContactSection = () => {
   const [isLoading, setIsLoading] = useState(false); // Zustand für Ladevorgang
   const [error, setError] = useState<string | null>(null); // Fehlerzustand
 
-  // Funktion, um den Klick zu behandeln und die reCAPTCHA-Verifizierung durchzuführen
   const handleContactClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault(); // Verhindert das Standardverhalten
+    e.preventDefault();
 
-    setIsLoading(true); // Ladeanzeige aktivieren
+    setIsLoading(true);
     setError(null); // Fehler zurücksetzen
 
     // Sicherstellen, dass grecaptcha und grecaptcha.enterprise existieren
     if (typeof grecaptcha !== "undefined" && grecaptcha.enterprise) {
       grecaptcha.enterprise.ready(async () => {
         try {
-          // reCAPTCHA ausführen und Token erhalten
           const token = await grecaptcha.enterprise.execute(
-            process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!, // Schlüssel aus Umgebungsvariablen
+            process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY_PROD!, // Dein Site Key hier
             { action: "CONTACT" }
           );
 
-          // Wenn das Token erfolgreich abgerufen wurde, handle die Anfrage
+          // Wenn das Token erfolgreich abgerufen wurde, sende es an den Server
           if (token) {
-            // Mailto-Link mit den angegebenen Parametern öffnen
-            window.location.href =
-              "mailto:davidkoeberl99@gmail.com?subject=Kontaktaufnahme%20über%20Webseite&body=Hallo%2C%20David,%20ich%20habe%20eine%20Frage%20an%20dich.";
+            const response = await fetch("/api/verify-recaptcha", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                token: token,
+                action: "CONTACT", // Optional, wenn du eine Aktion weitergeben willst
+              }),
+            });
+
+            const data = await response.json();
+
+            // Überprüfe die Antwort vom Server (z.B. wenn reCAPTCHA erfolgreich verifiziert wurde)
+            if (data.success) {
+              window.location.href =
+                "mailto:davidkoeberl99@gmail.com?subject=Kontaktaufnahme%20über%20Webseite&body=Hallo%2C%20David,%20ich%20habe%20eine%20Frage%20an%20dich.";
+            } else {
+              setError(
+                "reCAPTCHA konnte nicht verifiziert werden. Bitte versuche es erneut."
+              );
+            }
           } else {
             setError(
               "reCAPTCHA konnte nicht verifiziert werden. Bitte versuche es erneut."
@@ -59,7 +74,7 @@ export const ContactSection = () => {
           <div
             className="absolute inset-0 opacity-5 -z-10"
             style={{
-              backgroundImage: `url(${grainImage.src})`, // Hintergrundbild
+              backgroundImage: `url(${grainImage.src})`,
             }}
           ></div>
           <div className="flex flex-col md:flex-row gap-8 md:gap-13 items-center">
@@ -67,7 +82,7 @@ export const ContactSection = () => {
               <h2 className="font-serif text-2xl md:text-3xl">
                 Lass uns gemeinsam etwas Außergewöhnliches schaffen
               </h2>
-              <p className="text-sm md:text-base mt-2">
+              <p className="text-sm md:text-base mt-2 ">
                 Bereit, dein nächstes Projekt zum Leben zu erwecken? Dann lass
                 uns in Verbindung treten! Ich helfe dir dabei, deine Ziele zu
                 erreichen.
@@ -75,20 +90,20 @@ export const ContactSection = () => {
             </div>
             <div>
               <button
-                onClick={handleContactClick} // Klick-Handler für den Button
+                onClick={handleContactClick}
                 disabled={isLoading} // Button deaktivieren, wenn es lädt
-                className="text-white bg-gray-900 inline-flex items-center px-6 h-12 rounded-xl gap-2 border border-gray-900"
+                className="g-recaptcha text-white bg-gray-900 inline-flex items-center px-6 h-12 rounded-xl gap-2 border border-gray-900"
               >
                 {isLoading ? (
                   <span className="font-semibold text-sm w-max">
                     Verifiziere...
-                  </span> // Ladeanzeige
+                  </span>
                 ) : (
                   <span className="font-semibold text-sm w-max">
                     Kontakt aufnehmen
                   </span>
                 )}
-                <ArrowUpRightIcon className="size-4" /> {/* Pfeil-Icon */}
+                <ArrowUpRightIcon className="size-4 " />
               </button>
             </div>
           </div>
