@@ -20,7 +20,7 @@ export const ContactSection = () => {
         try {
           // Verwendung des Produktions-Site-Keys direkt aus der Umgebungsvariable
           const token = await grecaptcha.enterprise.execute(
-            process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY_PROD!, // Dein Produktions-Site-Key hier
+            process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!, // Dein Produktions-Site-Key hier
             { action: "CONTACT" }
           );
 

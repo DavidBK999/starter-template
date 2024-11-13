@@ -28,10 +28,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const recaptchaKey =
-    process.env.NODE_ENV === "production"
-      ? process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY_PROD
-      : process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+  // Verwende hier immer den normalen Site-Key
+  const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
   return (
     <html lang="de">

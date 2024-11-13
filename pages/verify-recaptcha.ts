@@ -8,23 +8,28 @@ export default async function handler(
     const { token, action } = req.body;
 
     try {
-      const secretKey = process.env.RECAPTCHA_SECRET_KEY; // Dein Secret Key aus .env
+      const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+      const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY; // Nur der normale Key (kein PROD)
 
-      // Stelle sicher, dass der richtige Site Key verwendet wird
-      const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY_PROD; // für Produktion
+      if (!siteKey) {
+        // Wenn der Sitekey nicht vorhanden ist, gib einen Fehler zurück
+        return res
+          .status(500)
+          .json({ success: false, message: "Site key missing" });
+      }
 
       // Request Body erstellen, der an Google gesendet wird
       const requestBody = {
         event: {
           token: token, // Das von grecaptcha zurückgegebene Token
           expectedAction: action, // Optional: Die Aktion, die während der Ausführung von grecaptcha angegeben wurde
-          siteKey: siteKey, // Site Key aus der Umgebung (Produktion oder Entwicklung)
+          siteKey: siteKey, // Site Key aus der Umgebung
         },
       };
 
       // Sende die Anfrage an die reCAPTCHA Enterprise API
       const recaptchaResponse = await fetch(
-        `https://recaptchaenterprise.googleapis.com/v1/projects/{PROJECT_ID}/assessments?key=${secretKey}`,
+        `https://recaptchaenterprise.googleapis.com/v1/projects/portfolio-web-de-1731449101937/assessments?key=${secretKey}`,
         {
           method: "POST",
           headers: {
